@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>お申し込み｜ブランド幕府 — AIに、おすすめされる店へ。</title>
+<meta name="description" content="ChatGPTやGeminiが商品を“おすすめ”する状態を、広告に頼らず、実測しながらつくる。月額の改善運用サービス。打合せなし・いつでも解約。" />
+<meta name="theme-color" content="#0E1A2B" />
+<meta property="og:title" content="お申し込み｜ブランド幕府" />
+<meta property="og:description" content="AIに、おすすめされる店へ。月額の改善運用サービス。打合せなし・いつでも解約。" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ai:#0E1A2B; --ai-deep:#07101D; --sumi:#1A1814;
+    --kin:#B89160; --kin-soft:#C8A876;
+    --kinari:#F3EDE0; --kinari-deep:#E8E1D3;
+    --washi-line:#D7CFBF; --ishi:#5A5A5A;
+    --mincho:"Shippori Mincho B1", "Noto Serif JP", "Hiragino Mincho ProN", serif;
+    --gothic:"Noto Sans JP", system-ui, sans-serif;
+    --mono:"SF Mono", ui-monospace, monospace;
+    --maxw:1080px;
+    --pad-y:clamp(4.5rem, 9vw, 8rem);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--kinari); color:var(--sumi);
+    font-family:var(--gothic); font-weight:400; line-height:1.9;
+    letter-spacing:.02em; -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3{font-family:var(--mincho); font-weight:600; letter-spacing:.04em; line-height:1.32; margin:0}
+  p{margin:0}
+  a{color:inherit}
+  ::selection{background:var(--kin); color:var(--ai)}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-inline:clamp(1.25rem,5vw,2.5rem)}
+  .section{padding-block:var(--pad-y)}
+
+  /* kicker / eyebrow */
+  .kicker{
+    font-family:var(--gothic); font-weight:700; font-size:.7rem;
+    letter-spacing:.34em; color:var(--kin); text-transform:none;
+    display:inline-flex; align-items:center; gap:.7em; margin:0 0 1.4rem;
+  }
+  .kicker::before{content:""; width:1.6rem; height:1px; background:var(--kin); display:inline-block}
+
+  /* buttons */
+  .btn{
+    --bg:var(--ai); --fg:var(--kinari); --bd:var(--ai);
+    display:inline-flex; align-items:center; gap:.7em;
+    background:var(--bg); color:var(--fg); border:1px solid var(--bd);
+    font-family:var(--gothic); font-weight:700; font-size:1rem; letter-spacing:.04em;
+    padding:1.05em 2em; text-decoration:none; cursor:pointer; border-radius:0;
+    transition:background .25s ease, color .25s ease, border-color .25s ease, transform .15s ease;
+  }
+  .btn .arw{display:inline-block; transition:transform .25s ease}
+  .btn:hover{background:var(--ai-deep)} .btn:hover .arw{transform:translateX(.3em)}
+  .btn--gold{--bg:var(--kin); --fg:var(--ai); --bd:var(--kin)}
+  .btn--gold:hover{background:var(--kin-soft)}
+  .btn--ghost{--bg:transparent; --fg:var(--kin); --bd:var(--kin)}
+  .btn--ghost:hover{background:transparent; color:var(--kin-soft); border-color:var(--kin-soft)}
+  .btn--ghost-light{--bg:transparent; --fg:var(--kinari); --bd:var(--kinari)}
+  .btn--ghost-light:hover{background:transparent; color:#fff; border-color:#fff}
+  .tlink{
+    font-weight:700; color:var(--ishi); text-decoration:none;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+    display:inline-flex; gap:.5em; align-items:center; transition:color .2s, border-color .2s;
+  }
+  .tlink:hover{color:var(--kin); border-color:var(--kin)}
+
+  a:focus-visible, .btn:focus-visible, summary:focus-visible{
+    outline:2px solid var(--kin); outline-offset:3px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; background:var(--ai); color:var(--kinari); overflow:hidden}
+  .hero .wrap{position:relative; z-index:2; padding-block:clamp(5.5rem,11vw,9rem)}
+  .hero .kicker{color:var(--kin-soft)}
+  .hero h1{
+    font-size:clamp(2.5rem,6.4vw,4.5rem); font-weight:600; color:var(--kinari);
+    line-height:1.24; margin:0 0 1.5rem;
+  }
+  .hero h1 em{font-style:normal; color:var(--kin-soft)}
+  .hero .lede{
+    font-size:clamp(1.02rem,1.7vw,1.2rem); color:#cdd6e0; max-width:34em;
+    line-height:1.95; margin:0 0 2.6rem;
+  }
+  .hero-cta{display:flex; flex-wrap:wrap; gap:1rem 1.4rem; align-items:center}
+  /* moon — the single quiet atmospheric mark */
+  .moon{
+    position:absolute; top:-14%; right:-6%; width:min(46vw,520px); aspect-ratio:1; z-index:1;
+    border:1px solid rgba(184,145,96,.34); border-radius:50%;
+    -webkit-mask:radial-gradient(circle at 70% 30%, transparent 58%, #000 59%);
+            mask:radial-gradient(circle at 70% 30%, transparent 58%, #000 59%);
+  }
+  .moon::after{
+    content:""; position:absolute; inset:14%; border-radius:50%;
+    border:1px solid rgba(184,145,96,.16);
+  }
+  .hero-rule{height:1px; background:linear-gradient(90deg, var(--kin), transparent); margin-top:clamp(3rem,6vw,4.5rem)}
+
+  /* ---------- CONCEPT ---------- */
+  .lead-line{
+    font-family:var(--mincho); font-weight:600; font-size:clamp(1.5rem,3.4vw,2.35rem);
+    line-height:1.6; letter-spacing:.04em; max-width:24em; margin:0 0 .4rem;
+  }
+  .lead-line .mk{color:var(--kin)}
+  .pillars{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    margin-top:clamp(3rem,5vw,4rem); border-top:1px solid var(--washi-line);
+  }
+  .pillar{padding:2.2rem 1.8rem 2.2rem 0; border-right:1px solid var(--washi-line)}
+  .pillar:last-child{border-right:0; padding-right:0}
+  .pillar .pn{font-family:var(--mono); font-size:.74rem; color:var(--kin); letter-spacing:.18em; display:block; margin-bottom:.9rem}
+  .pillar h3{font-size:1.18rem; margin-bottom:.7rem}
+  .pillar p{font-size:.95rem; color:var(--ishi); line-height:1.85}
+
+  /* ---------- PLANS ---------- */
+  .plans-sec{background:var(--kinari-deep)}
+  .sec-head{margin-bottom:clamp(2.6rem,5vw,3.6rem)}
+  .sec-head h2{font-size:clamp(1.75rem,3.6vw,2.5rem); margin-bottom:1rem}
+  .sec-head p{color:var(--ishi); max-width:30em}
+  .sec-head .em{color:var(--sumi); font-weight:500}
+  .plans{display:grid; grid-template-columns:1fr 1fr; gap:1.5rem}
+  .plan{
+    background:var(--kinari); border:1px solid var(--washi-line);
+    padding:clamp(2rem,3.2vw,2.8rem); display:flex; flex-direction:column;
+    transition:border-color .25s ease;
+  }
+  .plan:hover{border-color:var(--kin)}
+  .plan--feature{background:var(--ai); color:var(--kinari); border-color:var(--kin)}
+  .plan-top{display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:1.4rem}
+  .plan-name{font-family:var(--mincho); font-weight:600; font-size:1.5rem; letter-spacing:.05em}
+  .plan-tag{font-size:.82rem; color:var(--ishi); margin-top:.3rem; letter-spacing:.04em}
+  .plan--feature .plan-tag{color:var(--kin-soft)}
+  .badge{
+    font-family:var(--gothic); font-size:.64rem; font-weight:700; letter-spacing:.18em;
+    color:var(--ai); background:var(--kin); padding:.45em .8em; white-space:nowrap; align-self:flex-start;
+  }
+  /* signature motif: 点 (light) / 面 (standard) */
+  .motif{width:46px; height:46px; flex:none}
+  .price{display:flex; align-items:baseline; gap:.5rem; margin:.4rem 0 .2rem}
+  .price .yen{font-family:var(--mincho); font-size:1.3rem}
+  .price .num{font-family:var(--mincho); font-weight:700; font-size:clamp(2.4rem,4.6vw,3.1rem); line-height:1; letter-spacing:.02em}
+  .price .per{font-size:.92rem; color:var(--ishi)}
+  .plan--feature .price .per{color:var(--kin-soft)}
+  .price-sub{font-size:.84rem; color:var(--ishi); line-height:1.7; margin-bottom:1.6rem}
+  .plan--feature .price-sub{color:#b9c4d1}
+  .price-sub b{font-weight:700; color:var(--kin)}
+  .feat{list-style:none; margin:0 0 2rem; padding:1.5rem 0 0; border-top:1px solid var(--washi-line); display:grid; gap:.85rem; flex:1}
+  .plan--feature .feat{border-color:rgba(184,145,96,.34)}
+  .feat li{position:relative; padding-left:1.5em; font-size:.95rem; line-height:1.7}
+  .feat li::before{content:""; position:absolute; left:0; top:.72em; width:.6em; height:1px; background:var(--kin)}
+  .plan .btn{width:100%; justify-content:center}
+  .premium-note{
+    margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--washi-line);
+    font-size:.86rem; color:var(--ishi); display:flex; flex-wrap:wrap; gap:.4rem 1rem; align-items:baseline;
+  }
+  .premium-note b{font-family:var(--mincho); color:var(--sumi); font-weight:600; font-size:1rem}
+
+  /* ---------- DELIVERY (Brett) ---------- */
+  .delivery{display:grid; grid-template-columns:repeat(2,1fr); gap:0; border-top:1px solid var(--washi-line)}
+  .dl-item{padding:1.9rem 2rem 1.9rem 0; border-bottom:1px solid var(--washi-line); border-right:1px solid var(--washi-line)}
+  .dl-item:nth-child(2n){border-right:0; padding-right:0; padding-left:2rem}
+  .dl-item h3{font-size:1.1rem; margin-bottom:.5rem; display:flex; align-items:center; gap:.6rem}
+  .dl-item h3::before{content:""; width:6px; height:6px; background:var(--kin); display:inline-block}
+  .dl-item p{font-size:.93rem; color:var(--ishi); line-height:1.8}
+
+  /* ---------- STEPS ---------- */
+  .steps-sec{background:var(--ai); color:var(--kinari)}
+  .steps-sec .sec-head h2{color:var(--kinari)}
+  .steps-sec .sec-head p{color:#b9c4d1}
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid rgba(184,145,96,.34)}
+  .step{padding:2.2rem 1.8rem 0 0; border-right:1px solid rgba(184,145,96,.22)}
+  .step:last-child{border-right:0}
+  .step .sn{font-family:var(--mincho); font-weight:700; font-size:2rem; color:var(--kin); letter-spacing:.06em; display:block; margin-bottom:1rem}
+  .step h3{font-size:1.15rem; color:var(--kinari); margin-bottom:.6rem}
+  .step p{font-size:.93rem; color:#b9c4d1; line-height:1.8}
+
+  /* ---------- FAQ ---------- */
+  .faq{border-top:1px solid var(--washi-line)}
+  .faq details{border-bottom:1px solid var(--washi-line)}
+  .faq summary{
+    list-style:none; cursor:pointer; padding:1.5rem 2.5rem 1.5rem 0; position:relative;
+    font-family:var(--mincho); font-weight:600; font-size:1.1rem; letter-spacing:.03em;
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{
+    content:"＋"; position:absolute; right:.2rem; top:1.4rem; color:var(--kin);
+    font-family:var(--gothic); font-weight:400; transition:transform .2s ease;
+  }
+  .faq details[open] summary::after{content:"−"}
+  .faq .ans{padding:0 2.5rem 1.6rem 0; color:var(--ishi); font-size:.96rem; line-height:1.9; margin-top:-.3rem}
+
+  /* ---------- FINAL CTA ---------- */
+  .final{background:var(--ai-deep); color:var(--kinari); text-align:center}
+  .final h2{font-size:clamp(1.9rem,4.4vw,2.9rem); color:var(--kinari); margin-bottom:1.3rem}
+  .final p{color:#b9c4d1; max-width:30em; margin:0 auto 2.6rem; line-height:1.95}
+  .final .hero-cta{justify-content:center}
+  .gunshi{
+    margin-top:2.8rem; font-family:var(--mincho); font-size:.98rem; color:var(--kin-soft);
+    letter-spacing:.06em; display:inline-flex; align-items:center; gap:.8em;
+  }
+  .gunshi::before,.gunshi::after{content:""; width:1.8rem; height:1px; background:rgba(184,145,96,.4)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ai); color:#9aa6b3; border-top:1px solid rgba(184,145,96,.26)}
+  footer .wrap{padding-block:3rem; display:flex; flex-wrap:wrap; gap:1.4rem 2.5rem; align-items:baseline; justify-content:space-between}
+  .f-brand{font-family:var(--mincho); font-weight:600; font-size:1.15rem; color:var(--kinari); letter-spacing:.1em}
+  .f-meta{font-size:.82rem; line-height:1.9}
+  .f-meta a{color:#9aa6b3; text-decoration:none; border-bottom:1px solid transparent}
+  .f-meta a:hover{color:var(--kin-soft); border-color:var(--kin-soft)}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1; transform:none}
+
+  @media (max-width:760px){
+    .pillars,.plans,.delivery,.steps{grid-template-columns:1fr}
+    .pillar{border-right:0; border-bottom:1px solid var(--washi-line); padding:1.8rem 0}
+    .pillar:last-child{border-bottom:0}
+    .dl-item,.dl-item:nth-child(2n){border-right:0; padding:1.6rem 0; padding-left:0}
+    .step{border-right:0; border-bottom:1px solid rgba(184,145,96,.22); padding:1.9rem 0}
+    .step:last-child{border-bottom:0}
+    .moon{top:-8%; right:-22%; opacity:.7}
+    .btn{width:100%; justify-content:center}
+    .hero-cta .tlink{width:100%; justify-content:center}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto !important}
+    .reveal{opacity:1; transform:none; transition:none}
+    .btn,.btn .arw{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="moon" aria-hidden="true"></span>
+  <div class="wrap">
+    <span class="kicker">ブランド幕府 ｜ Shopify × AI検索（AEO）改善運用</span>
+    <h1>AIに、<em>おすすめ</em>される<br>店へ。</h1>
+    <p class="lede">ChatGPT や Gemini が、あなたの商品を“おすすめ”する。その状態を、広告に頼らず、実測しながらつくる。打合せなしの月額サービスです。</p>
+    <div class="hero-cta">
+      <a class="btn btn--gold" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">まず無料でAI検索を診断する <span class="arw" aria-hidden="true">→</span></a>
+      <a class="tlink" href="#plans">プランを見る <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="hero-rule" aria-hidden="true"></div>
+  </div>
+</header>
+
+<!-- CONCEPT -->
+<section class="section">
+  <div class="wrap">
+    <span class="kicker reveal">わたしたちがすること</span>
+    <p class="lead-line reveal">広告に頼らず、AIがあなたのブランドを<span class="mk">“おすすめ”し続ける</span>状態を、実測でつくる。</p>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <span class="pn">01 ／ 測る</span>
+        <h3>いまの現在地</h3>
+        <p>AIがいま、あなたのブランドをどう見ているか。実際のAIの画面で測ります。</p>
+      </div>
+      <div class="pillar">
+        <span class="pn">02 ／ 昇華</span>
+        <h3>答えの形に直す</h3>
+        <p>商品・ブランドページを、AIが“答え”として引用できる形に書き直し、反映します。</p>
+      </div>
+      <div class="pillar">
+        <span class="pn">03 ／ 証拠</span>
+        <h3>毎月、正直な数字</h3>
+        <p>効いているか。やめると何が止まるか。前後を毎月、隠さず数字で見せます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="section plans-sec" id="plans">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">料金</span>
+      <h2>点で出るか、面で選ばれ続けるか。</h2>
+      <p>分けるのは作業量の上限ではなく、<span class="em">速さと範囲</span>。どちらも依頼は積み放題、進行は1件ずつ、納得まで直します。</p>
+    </div>
+    <div class="plans">
+
+      <!-- LIGHT -->
+      <div class="plan reveal">
+        <div class="plan-top">
+          <div>
+            <div class="plan-name">ライト</div>
+            <div class="plan-tag">「まず出る」</div>
+          </div>
+          <!-- 点 motif -->
+          <svg class="motif" viewBox="0 0 46 46" aria-hidden="true">
+            <circle cx="23" cy="23" r="22" fill="none" stroke="#D7CFBF" stroke-width="1"/>
+            <circle cx="23" cy="23" r="4.5" fill="#B89160"/>
+          </svg>
+        </div>
+        <div class="price"><span class="yen">¥</span><span class="num">50,000</span><span class="per">／月</span></div>
+        <p class="price-sub">予算は抑えたい方へ。まずブランドと主力商品を、AIの答えに載せにいく第一歩。</p>
+        <ul class="feat">
+          <li>主力商品・ブランドを“AIの答え”に昇華</li>
+          <li>AI覆面調査（いまの見られ方を実画面で）</li>
+          <li>改善の前後を数字で確認</li>
+          <li>標準スピード・1件ずつ進行</li>
+        </ul>
+        <a class="btn" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">ライトで申し込む <span class="arw" aria-hidden="true">→</span></a>
+      </div>
+
+      <!-- STANDARD (feature) -->
+      <div class="plan plan--feature reveal">
+        <div class="plan-top">
+          <div>
+            <div class="plan-name">スタンダード</div>
+            <div class="plan-tag">「面で選ばれ続ける」</div>
+          </div>
+          <!-- 面 motif -->
+          <svg class="motif" viewBox="0 0 46 46" aria-hidden="true">
+            <rect x="1" y="1" width="44" height="44" fill="none" stroke="#B89160" stroke-width="1"/>
+            <path d="M12 1V45 M23 1V45 M34 1V45 M1 12H45 M1 23H45 M1 34H45" stroke="#B89160" stroke-width="1" opacity="0.55"/>
+          </svg>
+        </div>
+        <div class="price"><span class="yen">¥</span><span class="num">150,000</span><span class="per">／月</span></div>
+        <p class="price-sub"><b>立ち上げ価格 ¥75,000／月</b>（先行のお客様のみ・据置）。3ヶ月まとめ ¥375,000（実質 ¥125,000／月）。</p>
+        <ul class="feat">
+          <li>ブランド全体を昇華（商品・カテゴリ・FAQ・ブランドページ）</li>
+          <li>狙う媒体リスト（AIが見ている比較記事のうち不在の場所）</li>
+          <li>AI覆面調査・改善の前後を数字で確認</li>
+          <li>優先進行（速い）・1件ずつ進行</li>
+        </ul>
+        <a class="btn btn--gold" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">スタンダードで申し込む <span class="arw" aria-hidden="true">→</span></a>
+      </div>
+
+    </div>
+
+    <div class="premium-note reveal">
+      <b>プレミアム</b>
+      <span>伴走の極み。紹介・大手のみの非公開プランです。ご相談はLINEから。</span>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY (Brett-style) -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">進め方</span>
+      <h2>打合せは、いりません。</h2>
+      <p>Notionのボードで非同期に納品します。あなたの時間は、奪いません。</p>
+    </div>
+    <div class="delivery reveal">
+      <div class="dl-item">
+        <h3>Notionボードで非同期</h3>
+        <p>依頼も納品もボード上で完結。打合せ・電話はありません。</p>
+      </div>
+      <div class="dl-item">
+        <h3>依頼は積み放題</h3>
+        <p>昇華・改善・FAQ作成。積むのは自由。進行は1件ずつ、納得まで直します。</p>
+      </div>
+      <div class="dl-item">
+        <h3>いつでも一時停止・解約</h3>
+        <p>契約期間の縛りはありません。月単位で、いつでも止められます。</p>
+      </div>
+      <div class="dl-item">
+        <h3>追加料金なし</h3>
+        <p>見積もりも、オプション課金もなし。月額の一本だけで進みます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section steps-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">申し込みから着手まで</span>
+      <h2>3ステップで、すぐ動き出す。</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <span class="sn">01</span>
+        <h3>無料で診断</h3>
+        <p>いまAIにどう見られているかを、無料で実測します。現在地を一緒に確認。</p>
+      </div>
+      <div class="step">
+        <span class="sn">02</span>
+        <h3>プランを選んで申込</h3>
+        <p>LINEで開始。見積もりも、打合せも、いりません。</p>
+      </div>
+      <div class="step">
+        <span class="sn">03</span>
+        <h3>数日で着手</h3>
+        <p>ボードで進行。月内に、最初の改善をお届けします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">よくある質問</span>
+      <h2>気になるところ。</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>契約期間の縛りはありますか？</summary>
+        <div class="ans">ありません。月単位でのご利用で、いつでも一時停止・解約できます。</div>
+      </details>
+      <details>
+        <summary>打合せや電話は必要ですか？</summary>
+        <div class="ans">不要です。やり取りはすべてNotionのボード上で非同期に行います。</div>
+      </details>
+      <details>
+        <summary>Shopify以外のECでも頼めますか？</summary>
+        <div class="ans">手法は共通です。実装の部分を、ご利用のEC基盤に合わせます。まずは診断でご相談ください。</div>
+      </details>
+      <details>
+        <summary>成果は保証されますか？</summary>
+        <div class="ans">結果そのものは約束しません。約束するのは、隠さない正直な数字と、いつでも解約できるノーリスクです。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section final">
+  <div class="wrap">
+    <h2>まず、現在地を見てみませんか。</h2>
+    <p>あなたのブランドは、AIに聞いたら出てきますか。無料の診断から始められます。</p>
+    <div class="hero-cta">
+      <a class="btn btn--gold" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">無料診断・お申し込みはLINEから <span class="arw" aria-hidden="true">→</span></a>
+    </div>
+    <div class="gunshi">よい戦は、準備で決まります。</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">ブランド幕府</div>
+    <div class="f-meta">
+      運営統括責任者　千葉海智（個人事業主）<br>
+      特定商取引法・プライバシーポリシーは <a href="https://brandbakufu.com" target="_blank" rel="noopener">brandbakufu.com</a> に記載
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal (respects reduced-motion via CSS)
+  const els = document.querySelectorAll('.reveal');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
