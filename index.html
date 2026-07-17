@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>お申し込み｜ブランド幕府 — AIに、おすすめされる店へ。</title>
-<meta name="description" content="ChatGPTやGeminiが商品を“おすすめ”する状態を、広告に頼らず、実測しながらつくる。入口は0円のAI検索ミニ健診。月額の改善運用サービス。打合せなし・いつでも解約。">
+<meta name="description" content="ChatGPTやGeminiが商品を“おすすめ”する状態を、広告に頼らず、実測しながらつくる。入口はAI集客の無料診断（0円）。月額の改善運用サービス。打合せなし・いつでも解約。">
 <meta name="theme-color" content="#0E1A2B">
 <meta property="og:title" content="お申し込み｜ブランド幕府">
 <meta property="og:description" content="AIに、おすすめされる店へ。月額の改善運用サービス。打合せなし・いつでも解約。">
@@ -141,8 +141,9 @@
     font-family:var(--gothic); font-size:.64rem; font-weight:700; letter-spacing:.18em;
     color:var(--ai); background:var(--kin); padding:.45em .8em; white-space:nowrap; align-self:flex-start;
   }
-  /* signature motif: 点 (light) / 面 (standard) */
+  /* signature motif: 月の満ち欠け＝任せる量（三日月/半月/満月） */
   .motif{width:46px; height:46px; flex:none}
+  .plan .badge{margin-bottom:1.2rem}
   .price{display:flex; align-items:baseline; gap:.5rem; margin:.4rem 0 .2rem}
   .price .yen{font-family:var(--mincho); font-size:1.3rem}
   .price .num{font-family:var(--mincho); font-weight:700; font-size:clamp(2.4rem,4.6vw,3.1rem); line-height:1; letter-spacing:.02em}
@@ -162,7 +163,7 @@
   }
   .premium-note b{font-family:var(--mincho); color:var(--sumi); font-weight:600; font-size:1rem}
 
-  /* ---------- DELIVERY (Brett) ---------- */
+  /* ---------- DELIVERY ---------- */
   .delivery{display:grid; grid-template-columns:repeat(2,1fr); gap:0; border-top:1px solid var(--washi-line)}
   .dl-item{padding:1.9rem 2rem 1.9rem 0; border-bottom:1px solid var(--washi-line); border-right:1px solid var(--washi-line)}
   .dl-item:nth-child(2n){border-right:0; padding-right:0; padding-left:2rem}
@@ -247,7 +248,7 @@
     <h1>AIに、<em>おすすめ</em>される<br>店へ。</h1>
     <p class="lede">ChatGPT や Gemini が、あなたの商品を“おすすめ”する。その状態を、広告に頼らず、実測しながらつくる。打合せなしの月額サービスです。</p>
     <div class="hero-cta">
-      <a class="btn btn--gold" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">まず0円でAI検索ミニ健診を受ける <span class="arw" aria-hidden="true">→</span></a>
+      <a class="btn btn--gold" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">まず無料診断（0円）を受ける <span class="arw" aria-hidden="true">→</span></a>
       <a class="tlink" href="#plans">プランを見る <span aria-hidden="true">↓</span></a>
     </div>
     <div class="hero-rule" aria-hidden="true"></div>
@@ -266,9 +267,9 @@
         <p>AIがいま、あなたのブランドをどう見ているか。実際のAIの画面で測ります。</p>
       </div>
       <div class="pillar">
-        <span class="pn">02 ／ 昇華</span>
+        <span class="pn">02 ／ 直す</span>
         <h3>答えの形に直す</h3>
-        <p>商品・ブランドページを、AIが“答え”として引用できる形に書き直し、反映します。</p>
+        <p>商品・ブランドページを、AIが“答え”として引用できる形に直します。やり方だけ受け取って、自分で直すこともできます。</p>
       </div>
       <div class="pillar">
         <span class="pn">03 ／ 証拠</span>
@@ -284,17 +285,17 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="kicker">料金</span>
-      <h2>質問1つから、店ぜんぶまで。</h2>
-      <p>入口は0円のAI検索ミニ健診。有料プランは、<span class="em">同時に取りに行く質問の数</span>と範囲で選びます。すべて月額・初期費用なし・打合せなし・いつでも解約。</p>
+      <h2>自分で直すか、任せるか。</h2>
+      <p>入口はAI集客の無料診断（0円）。有料プランの違いは<span class="em">「どこまで任せるか」</span>だけで、考え方と計測はどのプランも同じです。すべて月額・初期費用0円・いつでも解約。</p>
     </div>
     <div class="plans">
 
-      <!-- 3万：三日月 -->
+      <!-- 指南（3万）：三日月 -->
       <div class="plan reveal">
         <div class="plan-top">
           <div>
-            <div class="plan-name">月3万円</div>
-            <div class="plan-tag">「質問1つを取りに行く」</div>
+            <div class="plan-name">指南</div>
+            <div class="plan-tag">「やり方を渡すので、自分で直す」</div>
           </div>
           <svg class="motif" viewBox="0 0 46 46" aria-hidden="true">
             <circle cx="23" cy="23" r="22" fill="none" stroke="#D7CFBF" stroke-width="1"/>
@@ -302,95 +303,108 @@
           </svg>
         </div>
         <div class="price"><span class="yen">¥</span><span class="num">30,000</span><span class="per">／月</span></div>
-        <p class="price-sub">AIへの質問を1つ選び、その答えに出ることを狙う第一歩。最初の60日は、誰もまだ答えに出ていない質問（空き地）から着手します。</p>
+        <p class="price-sub">社内に手を動かせる人がいる方へ。まず安く始めて、仕組みが分かってから任せるか決められます。</p>
         <ul class="feat">
-          <li>主力商品ページの整備（初月）</li>
-          <li>その質問に答える読み物を月1本</li>
-          <li>土台づくり（よくある質問・構造の目印）</li>
-          <li>毎月30日ごとの1数字レポート</li>
+          <li>毎月の実測（24問・「何問中何件か」まで全部見せます）</li>
+          <li>「次に直す3つ」の指南書1枚。読んだとおりに作業できる手順の粒度で</li>
+          <li>直した分が効いたかを、翌月の同条件の再計測で確認</li>
+          <li>質問はボードでもLINEでもいつでも</li>
         </ul>
-        <a class="btn" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">月3万円で申し込む <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">指南で申し込む <span class="arw" aria-hidden="true">→</span></a>
       </div>
 
-      <!-- 5万：半月 (feature) -->
+      <!-- 一部おまかせ（8万）：半月 (feature) -->
       <div class="plan plan--feature reveal">
+        <span class="badge">迷ったらこちら</span>
         <div class="plan-top">
           <div>
-            <div class="plan-name">月5万円</div>
-            <div class="plan-tag">「質問3つを並行」</div>
+            <div class="plan-name">一部おまかせ</div>
+            <div class="plan-tag">「できない所は、こちらが直す」</div>
           </div>
           <svg class="motif" viewBox="0 0 46 46" aria-hidden="true">
             <circle cx="23" cy="23" r="22" fill="none" stroke="#D7CFBF" stroke-width="1"/>
             <path d="M23 5 A18 18 0 0 1 23 41 Z" fill="#B89160"/>
           </svg>
         </div>
-        <div class="price"><span class="yen">¥</span><span class="num">50,000</span><span class="per">／月</span></div>
-        <p class="price-sub">広告の置き換えを本格に。積み上げの主力プラン。</p>
+        <div class="price"><span class="yen">¥</span><span class="num">80,000</span><span class="per">／月</span></div>
+        <p class="price-sub">指南のぜんぶに加えて、こちらの手で実装まで。手が足りない店の主力プランです。</p>
         <ul class="feat">
-          <li>読み物 月2〜3本＋比較記事1本</li>
-          <li>主力商品をまとめて整備</li>
-          <li>依頼は積み放題（進行は1件ずつ確実に）</li>
-          <li>1数字レポート＋90日ごとの「取れた質問リスト」</li>
+          <li>指南の内容ぜんぶ（実測＋指南書＋再計測）</li>
+          <li>実装をこちらの手で月3件まで（1件＝商品ページ1つ／読み物・比較記事1本／技術的な直し1つ）</li>
+          <li>土台づくり一式は、最初の60日でこの枠を使って完了</li>
+          <li>毎月30日レポート1枚（あなた◯件→◯件＋今月やったこと）</li>
         </ul>
-        <a class="btn btn--gold" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">月5万円で申し込む <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn btn--gold" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">一部おまかせで申し込む <span class="arw" aria-hidden="true">→</span></a>
       </div>
 
-      <!-- 15万：満月 -->
+      <!-- 全部おまかせ（20万）：満月 -->
       <div class="plan reveal">
         <div class="plan-top">
           <div>
-            <div class="plan-name">月15万円</div>
-            <div class="plan-tag">「店ぜんぶ」</div>
+            <div class="plan-name">全部おまかせ</div>
+            <div class="plan-tag">「あなたは確認だけ」</div>
           </div>
           <svg class="motif" viewBox="0 0 46 46" aria-hidden="true">
             <circle cx="23" cy="23" r="22" fill="none" stroke="#D7CFBF" stroke-width="1"/>
             <circle cx="23" cy="23" r="18" fill="#B89160"/>
           </svg>
         </div>
-        <div class="price"><span class="yen">¥</span><span class="num">150,000</span><span class="per">／月</span></div>
-        <p class="price-sub">店全体でAIの答えに出続ける、いちばん速いプラン。</p>
+        <div class="price"><span class="yen">¥</span><span class="num">200,000</span><span class="per">／月</span></div>
+        <p class="price-sub">時間を使いたくない方・商品が多い店へ。何をやるかを考えるのも、こちらです。</p>
         <ul class="feat">
-          <li>全商品＋比較記事＋買う導線</li>
-          <li>最優先対応（着手がいちばん速い）</li>
-          <li>競合だけが出ている質問を順に取る月次計画</li>
-          <li>1数字レポート＋取れた質問リスト</li>
+          <li>実装はぜんぶこちら（全商品ページ・読み物・比較記事・買う導線・土台）</li>
+          <li>毎月の「次に取りに行く質問の順番表」つき</li>
+          <li>新商品・季節商品もその都度対応。常に最優先・最速</li>
+          <li>ご希望の方のみ、月1回30分のオンライン同席（なしでも進みます）</li>
         </ul>
-        <a class="btn" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">月15万円で申し込む <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">全部おまかせで申し込む <span class="arw" aria-hidden="true">→</span></a>
       </div>
 
     </div>
 
     <div class="premium-note reveal">
+      <b>プランの行き来は自由</b>
+      <span>指南で始めて手が回らなくなったら、そのまま一部・全部に切り替えられます。逆に、任せてみて仕組みが分かったら下げてもかまいません（違約金なし）。作ったページ・記事は全部あなたのお店に残るので、どちらに動いても損はありません。</span>
+    </div>
+    <div class="premium-note reveal">
       <b>正直な受注ルール</b>
-      <span>アパレルや玩具のような大きい市場は、月3万円では動かせません。その場合は月15万円のご提案か、0円健診止まりを、最初に正直にお伝えします。</span>
+      <span>アパレルや玩具のような大きい市場は、指南や一部おまかせでは動かせない可能性があります。その場合は全部おまかせのご提案か、無料診断止まりを、最初に正直にお伝えします。</span>
     </div>
   </div>
 </section>
 
-<!-- DELIVERY (Brett-style) -->
+<!-- DELIVERY -->
 <section class="section">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="kicker">進め方</span>
       <h2>打合せは、いりません。</h2>
-      <p>Notionのボードで非同期に納品します。あなたの時間は、奪いません。</p>
+      <p>やり取りはボードでもLINEでも、非同期で完結。あなたの時間は、奪いません。</p>
     </div>
     <div class="delivery reveal">
       <div class="dl-item">
-        <h3>Notionボードで非同期</h3>
-        <p>依頼も納品もボード上で完結。打合せ・電話はありません。</p>
+        <h3>ボードでもLINEでも、非同期</h3>
+        <p>依頼も納品もオンラインで完結。定例会議はありません（全部おまかせのみ、ご希望の方に月1回30分の同席）。</p>
       </div>
       <div class="dl-item">
-        <h3>依頼は積み放題（月5万円から）</h3>
-        <p>昇華・改善・FAQ作成。積むのは自由。進行は1件ずつ、納得まで直します。</p>
+        <h3>何をやるかは、こちらが決めて提案</h3>
+        <p>毎月の計測結果から「次に直す3つ」を決めるのはこちら。あなたが選ぶのは、手を動かすのが誰か、だけです。</p>
       </div>
       <div class="dl-item">
-        <h3>いつでも一時停止・解約</h3>
-        <p>契約期間の縛りはありません。月単位で、いつでも止められます。</p>
+        <h3>申込みの週に着手</h3>
+        <p>最初の納品は7営業日以内。始める前に、お店のこだわりを聞く質問票10問だけお願いします。</p>
       </div>
       <div class="dl-item">
-        <h3>追加料金なし</h3>
-        <p>見積もりも、オプション課金もなし。月額の一本だけで進みます。</p>
+        <h3>公開前に、すべてあなたが確認</h3>
+        <p>OKするまでページも記事も公開しません。あなたの言葉を勝手に書き換えることもありません。</p>
+      </div>
+      <div class="dl-item">
+        <h3>いつでも解約</h3>
+        <p>支払いページから自分で止められます。違約金・最低契約期間はありません。追加料金・オプション課金もなし。</p>
+      </div>
+      <div class="dl-item">
+        <h3>作った物は、全部あなたのもの</h3>
+        <p>ページ・記事・設定はすべてあなたのお店の中。解約しても残り、自分で更新できます。</p>
       </div>
     </div>
   </div>
@@ -406,18 +420,18 @@
     <div class="steps reveal">
       <div class="step">
         <span class="sn">01</span>
-        <h3>0円のミニ健診</h3>
-        <p>店のURLをLINEに送るだけ。「あなた◯件／競合◯件」と「60日の設計図」が返ってきます。</p>
+        <h3>無料診断（0円）</h3>
+        <p>店のURLをLINEに送るだけ。「あなた◯件／競合◯件」の実測と、直すと良いところ3つが返ってきます。診断のあとに売り込みの連絡はしません。</p>
       </div>
       <div class="step">
         <span class="sn">02</span>
         <h3>プランを選んで申込</h3>
-        <p>LINEで開始。見積もりも、打合せも、いりません。</p>
+        <p>LINEで開始。見積もり・商談・営業トークはありません。</p>
       </div>
       <div class="step">
         <span class="sn">03</span>
-        <h3>数日で着手</h3>
-        <p>ボードで進行。月内に、最初の改善をお届けします。</p>
+        <h3>申込みの週に着手</h3>
+        <p>最初の納品は7営業日以内。あとはボードで進みます。</p>
       </div>
     </div>
   </div>
@@ -432,16 +446,20 @@
     </div>
     <div class="faq reveal">
       <details>
+        <summary>どのプランを選べばいいですか？</summary>
+        <div class="ans">目安は、自分で手を動かせるなら「指南」、手が足りないなら「一部おまかせ」、時間を使いたくない・商品が多いなら「全部おまかせ」です。いつでも隣のプランに切り替えられます（違約金なし）。迷ったら、まず無料診断（0円）の結果を見てから決められます。</div>
+      </details>
+      <details>
         <summary>契約期間の縛りはありますか？</summary>
-        <div class="ans">ありません。月単位でのご利用で、いつでも一時停止・解約できます。</div>
+        <div class="ans">ありません。最低契約期間も違約金もなく、支払いページからご自身で止められます（連絡不要・引き止めなし）。解約しても、作ったページ・記事はすべてあなたのお店に残ります。</div>
       </details>
       <details>
         <summary>打合せや電話は必要ですか？</summary>
-        <div class="ans">不要です。やり取りはすべてNotionのボード上で非同期に行います。</div>
+        <div class="ans">不要です。やり取りはボードでもLINEでも、非同期で行います。定例会議はありません（「全部おまかせ」のみ、ご希望の方に月1回30分のオンライン同席をおつけできます）。</div>
       </details>
       <details>
         <summary>Shopify以外のECでも頼めますか？</summary>
-        <div class="ans">手法は共通です。実装の部分を、ご利用のEC基盤に合わせます。まずは0円のミニ健診でご相談ください。</div>
+        <div class="ans">手法は共通です。実装の部分を、ご利用のEC基盤に合わせます。まずは無料診断（0円）でご相談ください。</div>
       </details>
       <details>
         <summary>「AEO」や「LLMO」という言葉との関係は？</summary>
@@ -453,7 +471,7 @@
       </details>
       <details>
         <summary>成果は保証されますか？</summary>
-        <div class="ans">「売上が必ず増える」という約束はしません。約束するのは、毎月の正直な数字（1数字＋今月やったこと3行）と、いつでもやめられる身軽さだけです。</div>
+        <div class="ans">「売上が必ず増える」という約束はしません。約束するのは、毎月の正直な数字（あなた◯件→◯件＋今月やったこと）と、いつでもやめられる身軽さだけです。</div>
       </details>
     </div>
   </div>
@@ -463,9 +481,9 @@
 <section class="section final">
   <div class="wrap">
     <h2>まず、現在地を見てみませんか。</h2>
-    <p>あなたのブランドは、AIに聞いたら出てきますか。0円のAI検索ミニ健診から始められます。</p>
+    <p>あなたのブランドは、AIに聞いたら出てきますか。AI集客の無料診断（0円）から始められます。</p>
     <div class="hero-cta">
-      <a class="btn btn--gold" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">0円のミニ健診・お申し込みはLINEから <span class="arw" aria-hidden="true">→</span></a>
+      <a class="btn btn--gold" href="https://lin.ee/TP3xmjp" target="_blank" rel="noopener">無料診断（0円）・お申し込みはLINEから <span class="arw" aria-hidden="true">→</span></a>
     </div>
     <div class="gunshi">よい戦は、準備で決まります。</div>
   </div>
